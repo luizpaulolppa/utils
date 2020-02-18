@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body,
+        #root {
+            height: 100%;
+        }
+
+        body {
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            background-color: #fafafa;
+        }
+
+        body,
+        input,
+        button {
+            font-family: Roboto, sans-serif;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+            background-color: white;
+        }
+
+        .logo-main {
+            width: 24px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .container-main {
+            display: flex;
+            height: 77px;
+            max-width: 976px;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .itens-footer {
+            display: flex;
+        }
+
+        .item {
+            color: #003569;
+            font-size: 12px;
+            padding: 5px;
+        }
+
+        .item-marca {
+            font-size: 12px;
+            color: #999;
+            padding: 5px;
+        }
+
+        .container-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100px;
+            max-width: 976px;
+            width: 100%;
+        }
+
+        .container-main-list {
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-list {
+            display: flex;
+            max-width: 976px;
+            width: 100%;
+            padding-top: 30px;
+        }
+
+        .posts {}
+
+        .news {
+            border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+            border-radius: 2px;
+            width: 332px;
+            margin-left: 30px;
+        }
+
+        .post {
+            width: 614px;
+            /* height: 700px; */
+            border: 1px solid rgba(var(--b6a, 219, 219, 219), 1);
+            border-radius: 2px;
+            margin-bottom: 50px;
+        }
+
+        .profile-picture {
+            height: 32px;
+            width: 32px;
+            border-radius: 16px;
+        }
+
+        .post-header {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+        }
+
+        .post-name-profile {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+
+        .post-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .post-options-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .img-post {
+            max-width: 612px;
+            max-height: 770px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <main>
+            <div class="container-main">
+                <div>
+                    <img class="logo-main" src="img/instagram-logo-black.png" alt="Logo" />
+                </div>
+                <div>
+                    <input type="text" placeholder="Search" />
+                </div>
+                <div>
+                    <img class="logo-main" src="img/find_people.png" alt="Logo" />
+                    <img class="logo-main" src="img/like.png" alt="Logo" />
+                    <img class="logo-main" src="img/user.png" alt="Logo" />
+                </div>
+            </div>
+        </main>
+        <div class="container-main-list">
+            <div class="main-list">
+                <div class="posts">
+                    <div class="post" v-for="post in posts">
+                        <div class="post-header">
+                            <div class="post-profile">
+                                <img class="profile-picture" src="img/js.jpg" />
+                                <p class="post-name-profile">javascript.js</p>
+                            </div>
+                            <div class="post-options-profile">
+                                <p>...</p>
+                            </div>
+                        </div>
+                        <div class="post-body">
+                            <img class="img-post" src="img/img-post.jpg" />
+                        </div>
+                        <div class="post-footer">
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="news">
+                    <h1>News</h1>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container-footer">
+                <div class="itens-footer">
+                    <p class="item">ABOUT</p>
+                    <p class="item">HELP</p>
+                    <p class="item">PRESS</p>
+                    <p class="item">API</p>
+                    <p class="item">JOBS</p>
+                    <p class="item">PRIVACY</p>
+                    <p class="item">TERMS</p>
+                    <p class="item">DIRECTORY</p>
+                    <p class="item">PROFILES</p>
+                    <p class="item">HASHTADS</p>
+                    <p class="item">LANGUAGE</p>
+                    <p class="item">ABOUT</p>
+                </div>
+                <div>
+                    <p class="item-marca">© 2020 INSTAGRAM FROM FACEBOOK</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                posts: [1, 2, 3, 4, 5],
+                cont: 0
+            },
+            methods: {
+                newPost: function() {
+                    console.log("TESTE!!!");
+                    this.cont++;
+                }
+            }
+        });
+    </script>
+</body>
+
+
+</html>
