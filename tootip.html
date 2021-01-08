@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <style>
+    .tooltipp {
+      display: none;
+      position: absolute;
+      width: 138px;
+      height: 48px;
+      border: solid 1px #8D8D8D;
+      background: #FFFFFF;
+      border-radius: 6px;
+      bottom: 36px;
+      left: -29px;
+      transition: 0.9s;
+      margin: 0;
+
+    }
+
+    .triangulo {
+      width: 16px;
+      height: 16px;
+      background-color: #ffffff;
+      border-bottom: solid 1px #8D8D8D;
+      border-right: solid 1px #8D8D8D;
+      position: absolute;
+      bottom: -9px;
+      left: 63px;
+      transform: rotate(45deg);
+    }
+
+    .td-dinamic:hover .tooltipp {
+      display: initial;
+    }
+
+    .td-dinamic {
+      position: relative;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" class="container mt-5">
+    <h1>{{ message }}</h1>
+    <table class="table" style="width:100%">
+      <tr>
+        <th>Firstname</th>
+        <th>Age</th>
+      </tr>
+      <tr v-for="person in people">
+        <td>{{ person.name }}</td>
+        <td class="td-dinamic">
+          {{ person.idade }}
+          <div class="tooltipp">
+            <p>{{ person.details }}</p>
+            <div class="triangulo"></div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!',
+      people: [],
+    },
+    methods: {
+      init() {
+        console.log('INIT');
+        this.people = [
+          { name: 'Luiz Paulo', idade: 25, details: 'Javeiro' },
+          { name: 'Matheus', idade: 21, details: 'JavaScript' },
+        ];
+      },
+    },
+  });
+
+  app.init();
+</script>
+
+</html>
